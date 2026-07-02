@@ -1,0 +1,1 @@
+PRODUCT_COLUMNS = ["id", "title", "description", "price", "category", "image_url", "image_path"]

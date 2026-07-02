@@ -1,0 +1,57 @@
+# --- Python ---
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# --- Logs & databases ---
+*.log
+*.db
+*.sqlite3
+
+# --- Environment & secrets ---
+.env
+.env.local
+.env.*.local
+
+# --- IDE / Editor ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Testing & coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# --- Project‑specific generated data ---
+data/raw/images/
+data/uploads/
+data/processed/           # <-- add this if you regenerate cleaned data
+embeddings/generated/
+vector_store/faiss_index/
+reports/generated_reports/
+
+# --- Binary / serialized files ---
+*.npy
+*.pkl
+*.faiss
+*.parquet
+*.h5
+
+# --- Miscellaneous ---
+*.tmp
+*.temp
