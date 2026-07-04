@@ -1,25 +1,24 @@
-import os
 import sys
 from pathlib import Path
+
+# ---- CRITICAL: Add project root to Python path ----
+# Must be before any imports that use project modules (utils, rag, etc.)
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+# ---- Now import project modules ----
+import os
+import tempfile
+import streamlit as st
+from PIL import Image
+from rag.rag_chain import RAGChain
 from utils.config import FAISS_INDEX_DIR, PROCESSED_DATA_DIR
 
-# If the FAISS index is missing, generate it (one‑time)
+# ---- Generate FAISS index if missing (one-time on Render) ----
 if not (FAISS_INDEX_DIR / "index.faiss").exists():
     print("🔄 FAISS index not found. Generating embeddings...")
     os.system("python -m embeddings.generate_embeddings")
 
-import streamlit as st
-import tempfile
-import os
-import sys
-from pathlib import Path
-# Add the project root to Python path
-sys.path.insert(0, str(Path(__file__).parent.parent))
-from PIL import Image
-from rag.rag_chain import RAGChain
-
-
-# Page config
+# ---- Page config ----
 st.set_page_config(page_title="Multimodal RAG Assistant", layout="wide")
 
 @st.cache_resource
@@ -139,7 +138,7 @@ def main():
             os.unlink(image_path)
         except PermissionError:
             # The file may still be in use; we'll skip deletion.
-            # Temp files are eventually cleaned up by the OS.
             pass
+
 if __name__ == "__main__":
     main()
