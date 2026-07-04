@@ -1,3 +1,13 @@
+import os
+import sys
+from pathlib import Path
+from utils.config import FAISS_INDEX_DIR, PROCESSED_DATA_DIR
+
+# If the FAISS index is missing, generate it (one‑time)
+if not (FAISS_INDEX_DIR / "index.faiss").exists():
+    print("🔄 FAISS index not found. Generating embeddings...")
+    os.system("python -m embeddings.generate_embeddings")
+
 import streamlit as st
 import tempfile
 import os
