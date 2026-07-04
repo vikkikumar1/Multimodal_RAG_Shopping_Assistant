@@ -4,6 +4,7 @@ An AI-powered shopping assistant that combines **Google Gemini Vision**, **Retri
 
 > **ChatGPT + Google Lens + Amazon Search**
 
+🌐 Live Demo:  https://multimodal-rag-shopping-assistant.onrender.com
 
 ##  Features
 
